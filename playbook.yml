@@ -1,0 +1,5 @@
+---
+- hosts: ldap
+  remote_user: root
+  roles:
+    - role: ldap
