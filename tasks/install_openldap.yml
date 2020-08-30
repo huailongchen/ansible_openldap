@@ -1,12 +1,8 @@
 - name: Install Ldapserver
   yum:
     name: "{{ item }}"
-  with_items:
-    - openldap 
-    - openldap-clients
-    - openldap-servers 
-    - openldap-devel
-    - migrationtools
+  with_items: ldap_dependent_packages
+  tags: a1
 
 - name: Generate the token
   expect:

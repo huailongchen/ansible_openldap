@@ -1,15 +1,8 @@
 - name: Install Apache PHP
   yum:
     name: "{{ item }}"
-  with_items:
-    - httpd
-    - php
-    - php-ldap
-    - php-gd
-    - php-mbstring
-    - php-pear
-    - php-bcmath
-    - php-xml
+  with_items: phpldapadmin_dependent_packages
+  tags: a2
 
 - name: Centos7 Install Phpldapadmin
   yum:
