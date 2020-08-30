@@ -1,6 +1,7 @@
 ---
 dn_cn: test
 dn_dc: up
+admin_passwd: 846869
 ldap_config_route: /etc/openldap/slapd.d/cn\=config
 phpldapadmin_config: /etc/phpldapadmin/config.php
 phpldapadmin_httpd_config: /etc/httpd/conf.d/phpldapadmin.conf

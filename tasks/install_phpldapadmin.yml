@@ -1,0 +1,32 @@
+- name: Install Apache PHP
+  yum:
+    name: "{{ item }}"
+  with_items:
+    - httpd
+    - php
+    - php-ldap
+    - php-gd
+    - php-mbstring
+    - php-pear
+    - php-bcmath
+    - php-xml
+
+- name: Centos7 Install Phpldapadmin
+  yum:
+    name: "{{ item }}"
+  with_items:
+    - epel-release
+    - phpldapadmin
+
+- name: Modify Phpldapadmin Configuration File
+  shell: sed -i '398 s/uid/dn/g' {{ phpldapadmin_config }}
+
+- name: Modify Phpldapadmin Httpd Configuration File
+  shell: sed -i '/Require/ s/local/all granted/g' {{ phpldapadmin_httpd_config }} && \
+         sed -i '/all/ s/Deny/Allow/g' {{ phpldapadmin_httpd_config }}
+
+- name: Start the httpd service
+  service:
+    name: httpd
+    state: started
+    enabled: yes
