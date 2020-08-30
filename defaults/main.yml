@@ -5,3 +5,19 @@ admin_passwd: 846869
 ldap_config_route: /etc/openldap/slapd.d/cn\=config
 phpldapadmin_config: /etc/phpldapadmin/config.php
 phpldapadmin_httpd_config: /etc/httpd/conf.d/phpldapadmin.conf
+ldap_dependent_packages:
+  - openldap 
+  - openldap-clients
+  - openldap-servers 
+  - openldap-devel
+  - migrationtools
+phpldapadmin_dependent_packages:
+  - httpd
+  - php
+  - php-ldap
+  - php-gd
+  - php-mbstring
+  - php-pear
+  - php-bcmath
+  - php-xml
+
