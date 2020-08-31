@@ -1,7 +1,7 @@
 - name: Install Apache PHP
   yum:
     name: "{{ item }}"
-  with_items: phpldapadmin_dependent_packages
+  with_items: "{{ phpldapadmin_dependent_packages }}"
   tags: a2
 
 - name: Centos7 Install Phpldapadmin
