@@ -1,4 +1,8 @@
 ---
+- name: Install pip and pexpect module
+  include_tasks: install_ansible_module.yml
+  when: ansible_distribution == 'CentOS'
+  
 - name: Install and set up openldap service
   include_tasks: install_openldap.yml
   when: ansible_distribution == 'CentOS'
