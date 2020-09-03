@@ -1,9 +1,11 @@
-- name: Install pip
+- name: Install epel
   yum:
-    name: "{{ item }}"
-  with_items:
-    - epel-release
-    - python-pip
+    name: epel-release
+
+- name: Install python-pip
+  yum:
+    name: python-pip
+
 
 - name: Install ansible module
   shell: pip install pexpect
